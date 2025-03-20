@@ -5,122 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Neumann & Kessler Autopflege</title>
     <style>
-        /* Hintergrund und Textfarben */
         body { 
             background: url('https://via.placeholder.com/1920x1080/2a2a2a/FFFFFF?text=Hintergrund+Bild') no-repeat center center fixed;
             background-size: cover;
             color: #F5F5F5; 
             font-family: 'Arial', sans-serif; 
-            text-align: center; 
             margin: 0;
             padding: 0;
         }
 
-        /* Titel Stil */
-        h1 {
-            font-size: 3.5em;
-            margin-top: 50px;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-            color: #E4E4E4;
-            font-weight: bold;
-            animation: slideIn 1s ease-out;
-        }
-
-        /* Animation für den Titel */
-        @keyframes slideIn {
-            from {
-                transform: translateX(-100%);
-            }
-            to {
-                transform: translateX(0);
-            }
-        }
-
-        /* Tab Menü */
-        .tabs {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-            border-bottom: 2px solid #D1D1D1;
-        }
-
-        .tab {
-            margin: 0 20px;
-            padding: 12px;
-            cursor: pointer;
-            background: rgba(0, 0, 0, 0.7);
-            color: #F5F5F5;
-            font-size: 1.2em;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-
-        .tab:hover {
-            background: rgba(255, 0, 0, 0.9);
-            transform: scale(1.1);
-        }
-
-        /* Inhaltliche Bereiche */
-        .content {
-            display: none;
-            margin-top: 20px;
+        /* Header - Navigation */
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
             text-align: center;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.6);
-            border-radius: 10px;
         }
 
-        .active {
-            display: block;
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
         }
 
-        /* Galerie */
-        .gallery img {
-            margin: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s ease;
+        /* Navigation Menü */
+        nav {
+            margin-top: 20px;
         }
 
-        .gallery img:hover {
-            transform: scale(1.1);
-        }
-
-        /* Button für Termin anfragen */
-        .button {
-            background: #D32F2F;
-            padding: 12px 24px;
+        nav a {
             color: white;
             text-decoration: none;
-            display: inline-block;
-            margin-top: 20px;
-            border-radius: 5px;
             font-size: 1.2em;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin: 0 20px;
+            transition: color 0.3s ease;
         }
 
-        .button:hover {
-            background: #B71C1C;
-            transform: scale(1.1);
-        }
-
-        /* Kontakt */
-        .contact p {
-            font-size: 1.5em;
-        }
-
-        .contact a {
+        nav a:hover {
             color: #FF5722;
-            text-decoration: none;
-            font-weight: bold;
         }
 
-        .contact a:hover {
-            color: #FF7043;
+        /* Hauptbereich */
+        section {
+            text-align: center;
+            padding: 40px 20px;
         }
 
-        /* Programme Bereich */
+        /* Programme */
         .program {
             background: rgba(0, 0, 0, 0.7);
             padding: 15px;
@@ -140,6 +71,52 @@
 
         .program p {
             font-size: 1.1em;
+        }
+
+        /* Galerie */
+        .gallery img {
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Kontakt */
+        .contact p {
+            font-size: 1.5em;
+        }
+
+        .contact a {
+            color: #FF5722;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact a:hover {
+            color: #FF7043;
+        }
+
+        /* Button für Termin anfragen */
+        .button {
+            background: #D32F2F;
+            padding: 12px 24px;
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .button:hover {
+            background: #B71C1C;
+            transform: scale(1.1);
         }
 
         /* Responsivität für mobile Geräte */
@@ -200,15 +177,18 @@
     </script>
 </head>
 <body>
-    <h1>Neumann & Kessler Autopflege</h1>
-    
-    <div class="tabs">
-        <div class="tab" onclick="switchContent('programs')">Startseite</div>
-        <div class="tab" onclick="switchContent('gallery')">Bildergalerie</div>
-        <div class="tab" onclick="switchContent('contact')">Kontakt und Standort</div>
-    </div>
+    <!-- Header -->
+    <header>
+        <h1>Neumann & Kessler Autopflege</h1>
+        <nav>
+            <a href="javascript:void(0)" onclick="switchContent('programs')">Startseite</a>
+            <a href="javascript:void(0)" onclick="switchContent('gallery')">Bildergalerie</a>
+            <a href="javascript:void(0)" onclick="switchContent('contact')">Kontakt und Standort</a>
+        </nav>
+    </header>
 
-    <div id="programs" class="content active">
+    <!-- Startseite Section -->
+    <section id="programs" class="content active">
         <h2>Unsere Programme</h2>
         <div class="program">
             <h3>Basis Pflege</h3>
@@ -225,25 +205,28 @@
             <p>Preis: 300€</p>
             <p>Die Komplett-Aufbereitung bietet Ihnen eine Rundum-Erneuerung. Vom Innenraum über Lackaufbereitung bis zur Versiegelung – alles inklusive!</p>
         </div>
-
         <h2>Termin buchen</h2>
         <input type="date" id="appointment-date" class="calendar">
         <button class="button" onclick="sendEmail()">Termin anfragen</button>
-    </div>
+    </section>
 
-    <div id="gallery" class="content">
+    <!-- Galerie Section -->
+    <section id="gallery" class="content">
         <h2>Hier könnte dein Auto sein!</h2>
-        <img src="https://raw.githubusercontent.com/Marlonjn/Autopflege/main/WhatsApp%20Image%202025-03-20%20at%2014.03.56.jpeg" width="300">
-        <img src="https://via.placeholder.com/300x200/33FF57/FFFFFF?text=Auto+2" width="300">
-        <img src="https://via.placeholder.com/300x200/3357FF/FFFFFF?text=Auto+3" width="300">
-    </div>
+        <div class="gallery">
+            <img src="https://raw.githubusercontent.com/Marlonjn/Autopflege/main/WhatsApp%20Image%202025-03-20%20at%2014.03.56.jpeg" width="300">
+            <img src="https://via.placeholder.com/300x200/33FF57/FFFFFF?text=Auto+2" width="300">
+            <img src="https://via.placeholder.com/300x200/3357FF/FFFFFF?text=Auto+3" width="300">
+        </div>
+    </section>
 
-    <div id="contact" class="content">
+    <!-- Kontakt Section -->
+    <section id="contact" class="content">
         <h2>Kontakt und Standort</h2>
         <p>Neumann & Kessler Autopflege</p>
         <p>Adresse: Musterstraße 123, 12345 Musterstadt</p>
         <p>Telefon: 01234 567890</p>
         <p>E-Mail: <a href="mailto:marlonj.n@freenet.de">marlonj.n@freenet.de</a></p>
-    </div>
+    </section>
 </body>
 </html>
