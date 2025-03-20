@@ -15,12 +15,27 @@
             padding: 0;
         }
 
+        /* Titel mit Animation */
         h1 {
-            font-size: 3em;
+            font-size: 3.5em;
             margin-top: 50px;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            color: black;
+            font-weight: bold;
+            animation: slideIn 1s ease-out;
         }
 
+        /* Animation für den Titel */
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        /* Tab-Menü */
         .tabs {
             display: flex;
             justify-content: center;
@@ -43,6 +58,7 @@
             transform: scale(1.1);
         }
 
+        /* Allgemeine Content-Stile */
         .content {
             display: none;
             margin-top: 20px;
@@ -56,6 +72,7 @@
             display: block;
         }
 
+        /* Galerie */
         .gallery img {
             margin: 20px;
             border-radius: 10px;
@@ -67,6 +84,7 @@
             transform: scale(1.1);
         }
 
+        /* Button für Termin anfragen */
         .button {
             background: red;
             padding: 12px 24px;
@@ -85,6 +103,7 @@
             transform: scale(1.1);
         }
 
+        /* Kontakt */
         .contact p {
             font-size: 1.5em;
         }
@@ -98,6 +117,59 @@
         .contact a:hover {
             color: #d30000;
         }
+
+        /* Programme Bereich */
+        .program {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            margin: 10px;
+            border-radius: 10px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .program:hover {
+            background: rgba(255, 0, 0, 0.8);
+            transform: scale(1.05);
+        }
+
+        .program h3 {
+            font-size: 1.5em;
+        }
+
+        .program p {
+            font-size: 1.1em;
+        }
+
+        /* Responsivität für mobile Geräte */
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .program {
+                margin: 15px 0;
+            }
+
+            .gallery img {
+                width: 100%;
+            }
+
+            .programs {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact p {
+                font-size: 1.2em;
+            }
+        }
+
     </style>
     <script>
         function sendEmail() {
@@ -136,10 +208,22 @@
 
     <div id="programs" class="content active">
         <h2>Unsere Programme</h2>
-        <p>Basis Pflege - 50€</p>
-        <p>Premium Aufbereitung - 150€</p>
-        <p>Komplett Aufbereitung - 300€</p>
-        
+        <div class="program">
+            <h3>Basis Pflege</h3>
+            <p>Preis: 50€</p>
+            <p>Die Basis-Pflege umfasst eine gründliche Innen- und Außenreinigung Ihres Fahrzeugs. Ideal für regelmäßige Pflege zwischen den großen Aufbereitungen.</p>
+        </div>
+        <div class="program">
+            <h3>Premium Aufbereitung</h3>
+            <p>Preis: 150€</p>
+            <p>Unsere Premium Aufbereitung sorgt für die perfekte Pflege Ihres Fahrzeugs – inklusive Politur, Tiefenreinigung und Wachsschutz für den Lack.</p>
+        </div>
+        <div class="program">
+            <h3>Komplett Aufbereitung</h3>
+            <p>Preis: 300€</p>
+            <p>Die Komplett-Aufbereitung bietet Ihnen eine Rundum-Erneuerung. Vom Innenraum über Lackaufbereitung bis zur Versiegelung – alles inklusive!</p>
+        </div>
+
         <h2>Termin buchen</h2>
         <input type="date" id="appointment-date" class="calendar">
         <button class="button" onclick="sendEmail()">Termin anfragen</button>
@@ -157,7 +241,7 @@
         <p>Neumann & Kessler Autopflege</p>
         <p>Adresse: Musterstraße 123, 12345 Musterstadt</p>
         <p>Telefon: 01234 567890</p>
-        <p>E-Mail: <a href="mailto:marlonj.n@freenet.de">marlonj.n@freenet.de</a></p>
+        <p>E-Mail: <a href="">marlonj.n@freenet.de</a></p>
     </div>
 </body>
 </html>
