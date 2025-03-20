@@ -24,19 +24,19 @@
         .tab:hover {
             background: red;
         }
-        .gallery, .contact { 
-            display: none; 
-            margin-top: 20px; 
-            text-align: center; 
-        }
-        .gallery img {
-            margin: 10px;
+        .content {
+            display: none;
+            margin-top: 20px;
+            text-align: center;
         }
         .active {
             display: block;
         }
         .contact p {
             font-size: 18px;
+        }
+        .gallery img {
+            margin: 10px;
         }
     </style>
     <script>
@@ -52,49 +52,18 @@
             window.location.href = mailtoLink;
         }
 
-        function openGallery() {
-            document.getElementById("gallery").classList.toggle("active");
-            document.getElementById("programs").classList.toggle("active");
-        }
+        function switchContent(contentId) {
+            // Alle Inhalte ausblenden
+            let contents = document.querySelectorAll('.content');
+            contents.forEach(function(content) {
+                content.classList.remove('active');
+            });
 
-        function openContact() {
-            document.getElementById("contact").classList.toggle("active");
-            document.getElementById("programs").classList.toggle("active");
+            // Den gewünschten Inhalt anzeigen
+            let activeContent = document.getElementById(contentId);
+            activeContent.classList.add('active');
         }
     </script>
 </head>
 <body>
-    <h1>Neumann & Kessler Autopflege</h1>
-    
-    <div class="tabs">
-        <div class="tab" onclick="openGallery()">Bildergalerie</div>
-        <div class="tab" onclick="openContact()">Kontakt und Standort</div>
-    </div>
-
-    <div id="gallery" class="gallery">
-        <h2>Hier könnte dein Auto sein!</h2>
-        <img src="https://via.placeholder.com/300x200/FF5733/FFFFFF?text=Auto+1" width="300">
-        <img src="https://via.placeholder.com/300x200/33FF57/FFFFFF?text=Auto+2" width="300">
-        <img src="https://via.placeholder.com/300x200/3357FF/FFFFFF?text=Auto+3" width="300">
-    </div>
-
-    <div id="contact" class="contact">
-        <h2>Kontakt und Standort</h2>
-        <p>Neumann & Kessler Autopflege</p>
-        <p>Adresse: Musterstraße 123, 12345 Musterstadt</p>
-        <p>Telefon: 01234 567890</p>
-        <p>E-Mail: <a href="mailto:marlonj.n@freenet.de">marlonj.n@freenet.de</a></p>
-    </div>
-
-    <div id="programs" class="active">
-        <h2>Unsere Programme</h2>
-        <p>Basis Pflege - 50€</p>
-        <p>Premium Aufbereitung - 150€</p>
-        <p>Komplett Aufbereitung - 300€</p>
-        
-        <h2>Termin buchen</h2>
-        <input type="date" id="appointment-date" class="calendar">
-        <button class="button" onclick="sendEmail()">Termin anfragen</button>
-    </div>
-</body>
-</html>
+    <h1>Neum
