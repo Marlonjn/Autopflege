@@ -3,11 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autoaufbereitung</title>
+    <title>Neumann & Kessler Autopflege</title>
     <style>
         body { background: black; color: white; font-family: Arial, sans-serif; text-align: center; }
         .button { background: red; padding: 10px 20px; color: white; text-decoration: none; display: inline-block; margin-top: 10px; cursor: pointer; border: none; }
         .calendar { margin-top: 20px; }
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            border-bottom: 2px solid white;
+        }
+        .tab {
+            margin: 0 10px;
+            padding: 10px;
+            cursor: pointer;
+            background: #333;
+            color: white;
+        }
+        .tab:hover {
+            background: red;
+        }
+        .gallery {
+            display: none;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .gallery img {
+            margin: 10px;
+        }
+        .active {
+            display: block;
+        }
     </style>
     <script>
         function sendEmail() {
@@ -21,19 +48,30 @@
             let mailtoLink = `mailto:${email}?subject=${subject}`;
             window.location.href = mailtoLink;
         }
+
+        function openGallery() {
+            document.getElementById("gallery").classList.toggle("active");
+        }
     </script>
 </head>
 <body>
-    <h1>Autoaufbereitung</h1>
-    <h2>Bildergalerie</h2>
-    <img src="car1.jpg" width="300">
-    <img src="car2.jpg" width="300">
-    <img src="car3.jpg" width="300">
+    <h1>Neumann & Kessler Autopflege</h1>
     
+    <div class="tabs">
+        <div class="tab" onclick="openGallery()">Bildergalerie</div>
+    </div>
+
+    <div id="gallery" class="gallery">
+        <h2>Hier könnte dein Auto sein!</h2>
+        <img src="https://via.placeholder.com/300x200/FF5733/FFFFFF?text=Auto+1" width="300">
+        <img src="https://via.placeholder.com/300x200/33FF57/FFFFFF?text=Auto+2" width="300">
+        <img src="https://via.placeholder.com/300x200/3357FF/FFFFFF?text=Auto+3" width="300">
+    </div>
+
     <h2>Unsere Programme</h2>
-    <p>Basis Reinigung - 50€</p>
+    <p>Basis Pflege - 50€</p>
     <p>Premium Aufbereitung - 150€</p>
-    <p>Keramikversiegelung - 300€</p>
+    <p>Komplett Aufbereitung - 300€</p>
     
     <h2>Termin buchen</h2>
     <input type="date" id="appointment-date" class="calendar">
